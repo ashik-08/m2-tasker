@@ -1,8 +1,14 @@
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Welcome to Tasker</h1>
-    </div>
+    <section>
+      <Header />
+      <Hero />
+      <Footer />
+    </section>
   );
 };
 
