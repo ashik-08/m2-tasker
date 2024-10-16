@@ -19,6 +19,13 @@ const TaskBoard = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [taskToUpdate, setTaskToUpdate] = useState(null);
 
+  const handleAddFav = (taskId) => {
+    const taskIndex = tasks.findIndex((task) => task.id === taskId);
+    const updatedTasks = [...tasks];
+    updatedTasks[taskIndex].isFavorite = !updatedTasks[taskIndex].isFavorite;
+    setTasks(updatedTasks);
+  };
+
   const handleAddEditTask = (newTask, isAdd) => {
     if (isAdd) {
       setTasks([...tasks, newTask]);
@@ -69,6 +76,7 @@ const TaskBoard = () => {
             tasks={tasks}
             onEdit={handleEditTask}
             onDelete={handleDeleteTask}
+            onFav={handleAddFav}
           />
         </div>
       </div>
